@@ -13,7 +13,7 @@ class DBClass {
 	
 	function __construct()
 	{
-		$hostname = "localhost";
+		$hostname = MYSQL_HOST;
 		$dbuser = MYSQL_USER_NAME;
 		$dbpwd = MYSQL_USER_PASSWORD;
 		$dbname = MYSQL_DB_NAME;

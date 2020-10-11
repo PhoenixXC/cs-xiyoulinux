@@ -10,6 +10,8 @@ define('BASE_PATH', dirname(__FILE__));
 /**/
 define('SITE_DOMAIN','http://***.org');
 
+/*MYSQL地址*/
+define('MYSQL_HOST', 'localhost');
 /*数据库用户名*/
 define('MYSQL_USER_NAME', '***');
 /*数据库密码*/
