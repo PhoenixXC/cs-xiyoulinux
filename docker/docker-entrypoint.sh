@@ -5,14 +5,16 @@ readonly APP_CONFIG_FILE=${APP_CONFIG_DIR}/config.php
 readonly APP_CONFIG_EQ_FILE=${APP_CONFIG_DIR}/config.sample.php
 
 function update_config () {
-    if [[ $2 ]]; then
+    if [ -n "$2" ]; then
+        echo "update ENV $1 to $2"
         sed -i "s?'$1',.*\$?'$1', '$2');?" "$APP_CONFIG_FILE"
     fi
 }
 
 if [ ! -f "$APP_CONFIG_FILE" ]; then
+    echo "no config file, use sample config"
     cp "$APP_CONFIG_EQ_FILE" "$APP_CONFIG_FILE"
-    update_config 'SITE_DOMAIN' '.'
+    sed -i "s?'SITE_DOMAIN',.*\$?'SITE_DOMAIN', '');?" "$APP_CONFIG_FILE"
 
     update_config 'MYSQL_HOST' "$MYSQL_HOST"
     update_config 'MYSQL_USER_NAME' "$MYSQL_USER_NAME"
@@ -27,6 +29,6 @@ if [ ! -f "$APP_CONFIG_FILE" ]; then
 fi
 
 /app/install.sh 
-nginx
+nginx -t && nginx
 
 exec "$@"
