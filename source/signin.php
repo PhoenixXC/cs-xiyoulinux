@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include('smarty.php');
+    include_once('smarty.php');
 
     $referer_uri = (!empty($_GET['referer_uri'])) ? $_GET['referer_uri'] : "index.php";
     if(isset($_SESSION['uid']) ) {

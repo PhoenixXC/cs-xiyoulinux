@@ -19,7 +19,7 @@ if (strpos($user_agent, 'MicroMessenger') === false){
     <title>西邮Linux纳新报名</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <link rel="stylesheet" href="http://cs.xiyoulinux.org/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css" />
     <style type="text/css">
         * {
             margin: 0;
@@ -248,8 +248,8 @@ if (strpos($user_agent, 'MicroMessenger') === false){
     	<span class="msg"></span>
     </div>
 
-    <script type="text/javascript" src="http://cs.xiyoulinux.org/js/jquery.js"></script>
-    <script type="text/javascript" src="./js/jquery.tabview.js"></script>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery.tabview.js"></script>
     <script type="text/javascript">
         $(".tabview").tabview({
             toggleEvent : "click",

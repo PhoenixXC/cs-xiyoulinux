@@ -259,7 +259,7 @@ class UserClass{
         $row = $result->fetch_assoc();
         $mail = $row['mail'];
         $size = 150;
-        $grav_url = "http://gravatar.duoshuo.com/avatar/" .md5(strtolower(trim($mail))) . "?d=mm&s=" . $size;
+        $grav_url = "http://cn.gravatar.com/avatar/" .md5(strtolower(trim($mail))) . "?d=mm&s=" . $size;
         return $grav_url;
     }
 

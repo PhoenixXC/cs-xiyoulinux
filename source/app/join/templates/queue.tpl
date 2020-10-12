@@ -2,7 +2,7 @@
 
 <{block name="stylesheet" append}>
 <link rel="stylesheet" href="<{$site_domain}>/js/datatables/datatables.css" type="text/css" />
-<link rel="stylesheet" href="http://libs.useso.com/js/bootstrap-switch/3.0.1/css/bootstrap3/bootstrap-switch.min.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/bootstrap-switch/3.0.1/css/bootstrap2/bootstrap-switch.min.css" type="text/css" />
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 <{/block}>
 
@@ -29,7 +29,7 @@
                 <div class="panel-body">
                     <legend style=>现场报名</legend>
                     <p>请扫描下方二维码，关注官方微信平台，通过右下方“其他功能”->“纳新报名”完成报名。</p>
-                    <p style="text-align: center"><img src="http://222.24.19.63/getqrcode.jpg" width="200px/"></p>
+                    <p style="text-align: center"><img src="http://join.xiyoulinux.org/getqrcode.jpg" width="200px/"></p>
                 </div>
             </div>    
         </div>
@@ -131,7 +131,7 @@
 
 <{block name="scripts" append}>
 <script type="text/javascript" src="<{$site_domain}>/js/datatables/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="http://libs.useso.com/js/bootstrap-switch/3.0.1/js/bootstrap-switch.min.js"></script>
+<script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/bootstrap-switch/3.0.1/js/bootstrap-switch.min.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {

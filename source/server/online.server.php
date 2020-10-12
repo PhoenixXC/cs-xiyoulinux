@@ -5,8 +5,8 @@
         exit();
     }
 
-    include(dirname(dirname(__FILE__)) . '/config.php');
-    include(BASE_PATH . '/includes/online.class.php');
+    include_once(dirname(dirname(__FILE__)) . '/config.php');
+    include_once(BASE_PATH . '/includes/online.class.php');
     $online_class = new OnlineClass();
 
     $uid=$_SESSION['uid'];

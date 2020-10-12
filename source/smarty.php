@@ -1,6 +1,6 @@
 <?php
-    include(dirname(__FILE__) . '/config.php');
-    include(SMARTY_HOME_PATH . '/Smarty.class.php');
+    include_once(dirname(__FILE__) . '/config.php');
+    include_once(SMARTY_HOME_PATH . '/Smarty.class.php');
     
     $smarty = new Smarty();
     $smarty->template_dir = BASE_PATH . '/templates/';

@@ -1,6 +1,6 @@
 <?php
 
-require('bug.class.php');
+require_once('bug.class.php');
 
 $content = $_POST['bugcontent'];
 $uid = $_COOKIE['uid'];

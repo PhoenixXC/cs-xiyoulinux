@@ -1,6 +1,6 @@
 <?php
-    require(dirname(dirname(dirname(__FILE__))) . '/config.php');
-    require(dirname(__FILE__) . "/includes/lecture.class.php");
+    require_once(dirname(dirname(dirname(__FILE__))) . '/config.php');
+    require_once(dirname(__FILE__) . "/includes/lecture.class.php");
     
     $func = $_GET['func'];
     if ($func == 'aside_html') echo aside_html();

@@ -13,6 +13,7 @@ require_once(BASE_PATH . '/includes/user.class.php');
 require_once(BASE_PATH . '/includes/plugin.class.php');
 require_once(BASE_PATH . '/includes/functions.php');
 
+//require_once(BASE_PATH . '/privilege_fun.php');
 $adminObj = new AdminClass();
 $userObj = new UserClass();
 
@@ -24,7 +25,7 @@ $userObj = new UserClass();
  * Info : 增加用户权限判定，输入过滤
  *
  */
-
+/*
 if(!isset($_SESSION['uid']) ) {
     header('location: '.SITE_DOMAIN);
     exit;
@@ -36,9 +37,11 @@ $CUser = new UserClass();
 $user_privilege = $CUser->get_privilege($_SESSION['uid']);
 
 if ($user_privilege == 0) {
-  echo "<script>alert("禁止非法请求");window.location.href=\"".SITE_DOMAIN."\";</script>";
+  echo "<script>alert(\"禁止非法请求\");window.location.href=\"".SITE_DOMAIN."\";</script>";
   exit();
 }
+
+*/
 /////////////////
 
 
@@ -130,6 +133,7 @@ function change_app_status(){
     if (!isset($_POST['name']) || !isset($_POST['status'])){
         return 0;
     }
+    
     $name = $_POST['name'];
     $status = $_POST['status'];
     $pluginObj = new PluginClass();
@@ -164,6 +168,7 @@ function delete_user($uid){
     if (!isset($uid)){
         return 0;
     }
+    
     $userObj = new UserClass();
     return boolean2Num($userObj->del_user($uid));
 }
@@ -185,6 +190,7 @@ function add_user(){
         $native = $_POST['native'];
         $qq = $_POST['qq'];
     }
+    
     return boolean2Num(add_packing_user($name, $sex, $mail, $grade, $major, $tel, $native, $qq));
 
 }
@@ -200,6 +206,7 @@ function deliver_privilege(){
         $now_uid = $_POST['now_uid'];
         $next_uid = $_POST['next_uid'];
     }
+    
     $userObj = new UserClass();
     return $userObj->deliver_privilege($now_uid, $next_uid);
 }
@@ -264,8 +271,9 @@ function check_phone_can_use(){
  * @param $qq qq号 选填
  */
 function add_packing_user($name, $sex, $mail, $grade, $major, $phone, $native, $qq){
+    
     $userObj = new UserClass();
-    return $userObj->add_user($name, '000000', $sex, $phone, $mail, $qq, '', '', '',
+    return $userObj->add_user($name,"000000", $sex, $phone, $mail, $qq, '', '', '',
         $native, $grade, $major, '', '');
 }
 

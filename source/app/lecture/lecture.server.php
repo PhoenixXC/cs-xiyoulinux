@@ -1,6 +1,6 @@
 <?php
-require(dirname(dirname(dirname(__FILE__))) . '/config.php');
-require(dirname(__FILE__) . "/includes/lecture.class.php");
+require_once(dirname(dirname(dirname(__FILE__))) . '/config.php');
+require_once(dirname(__FILE__) . "/includes/lecture.class.php");
 require_once(BASE_PATH . "/includes/db.class.php");
 require_once(BASE_PATH . "/includes/user.class.php");
 
