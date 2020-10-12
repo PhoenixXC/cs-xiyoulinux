@@ -4,6 +4,8 @@ readonly APP_CONFIG_DIR=/app
 readonly APP_CONFIG_FILE=${APP_CONFIG_DIR}/config.php
 readonly APP_CONFIG_EQ_FILE=${APP_CONFIG_DIR}/config.sample.php
 
+readonly PHP_INI=/opt/bitnami/php/lib/php.ini
+
 function update_config () {
     if [ -n "$2" ]; then
         echo "update ENV $1 to $2"
@@ -28,6 +30,8 @@ if [ ! -f "$APP_CONFIG_FILE" ]; then
     update_config 'SMTP_SERVER_PASS' "$SMTP_SERVER_PASS"
 fi
 
+sed -i 's?^error_reporting.*?error_reporting = E_ALL \& \~E_DEPRECATED \& \~E_STRICT \& \~E_NOTICE?' "$PHP_INI"
+sed -i 's?^opcache.revalidate_freq.*?opcache.revalidate_freq = 0?' "$PHP_INI"
 /app/install.sh 
 nginx -t && nginx
 
