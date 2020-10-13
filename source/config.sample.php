@@ -28,6 +28,9 @@ define('SMTP_SERVER_EMAIL', '***');
 define('SMTP_SERVER_USER', '***');
 define('SMTP_SERVER_PASS', '***');
 
+# 报名二维码地址
+define('JOIN_QR_LINK', 'http://join.xiyoulinux.org');
+
 /*Smary相关配置*/
 define('SMARTY_HOME_PATH', '/usr/local/lib/php/smarty');
 

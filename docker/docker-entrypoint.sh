@@ -28,6 +28,7 @@ if [ ! -f "$APP_CONFIG_FILE" ]; then
     update_config 'SMTP_SERVER_EMAIL' "$SMTP_SERVER_EMAIL"
     update_config 'SMTP_SERVER_USER' "$SMTP_SERVER_USER"
     update_config 'SMTP_SERVER_PASS' "$SMTP_SERVER_PASS"
+    update_config 'JOIN_QR_LINK' "$JOIN_QR_LINK"
 fi
 
 sed -i 's?^error_reporting.*?error_reporting = E_ALL \& \~E_DEPRECATED \& \~E_STRICT \& \~E_NOTICE?' "$PHP_INI"

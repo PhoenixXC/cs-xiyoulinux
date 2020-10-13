@@ -4,11 +4,25 @@
 <link rel="stylesheet" href="<{$site_domain}>/js/datatables/datatables.css" type="text/css" />
 <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/bootstrap-switch/3.0.1/css/bootstrap2/bootstrap-switch.min.css" type="text/css" />
 <link rel="stylesheet" href="css/style.css" type="text/css" />
+<style>
+    div#control {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0%;
+        padding: 10px;
+        color: white;
+        background: #5a6a7ae3;
+        z-index: 1;
+        box-shadow: 3px 11px 20px 0px #0000005c;
+    }
+</style>
 <{/block}>
 
 <{block name="frame"}> 
     <div class="row page-content" style="margin: 20px;">
-        <div class="col-md-4">
+        <div id="control"><div>隐藏</div></div>
+        <div class="col-md-4" id="aside">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <legend>面试签到</legend>
@@ -29,11 +43,12 @@
                 <div class="panel-body">
                     <legend style=>现场报名</legend>
                     <p>请扫描下方二维码，关注官方微信平台，通过右下方“其他功能”->“纳新报名”完成报名。</p>
-                    <p style="text-align: center"><img src="http://join.xiyoulinux.org/getqrcode.jpg" width="200px/"></p>
+                    <span id="hidden-link" class="hidden"><{$join_qr_link}></span>
+                    <div id="join-qrcode" style="margin: auto; display: table;"></div>
                 </div>
             </div>    
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8" id="sign-info">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="tabbable">
@@ -133,7 +148,28 @@
 <script type="text/javascript" src="<{$site_domain}>/js/datatables/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/bootstrap-switch/3.0.1/js/bootstrap-switch.min.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
+<script type="text/javascript" src="js/jquery.qrcode.min.js"></script>
 <script type="text/javascript">
+
+var qr_link = $("#hidden-link").text();
+$('#join-qrcode').qrcode({width: 200, height: 200,text: qr_link});
+
+$('#control').click(function(){
+  if ($("#control").text() === '隐藏') {
+      $("#control").text('显示');
+      $("#aside").addClass("hidden");
+      $("#sign-info").removeClass();
+      $("#sign-info").addClass("col-md-12");
+      $("#DataTables_Table_1").css("font-size", "larger");
+  } else {
+      $("#control").text('隐藏');
+      $("#aside").removeClass('hidden');
+      $("#sign-info").removeClass();
+      $("#sign-info").addClass("col-md-8");
+      $("#DataTables_Table_1").css("font-size", "unset");
+  }
+})
+
 $(document).ready(function() {
     reg_signed_events();
     reg_interviewed_events();
