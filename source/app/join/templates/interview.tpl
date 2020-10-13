@@ -79,42 +79,44 @@
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <legend>面试评价</legend>
-                            <input type="hidden" name="profileid" value="".$row["profileid"]."" />
-                            <input type="hidden" name="judger" value="".$_SESSION["judger"]."" />
-                            <input type="hidden" name="status" value="".$row["status"]."" />
-                            <input type="hidden" name="action" value="save" />
-                            <div class="control-group">
-                                <label>基础技能</label>
-                                <textarea class="form-control" id="input_basic" rows="5" placeholder="C语言，计算机基础等" required /></textarea>
-                            </div>
-                            <div class="control-group">
-                                <label>加分技能</label>
-                                <textarea class="form-control" id="input_extra" rows="5" placeholder="数据结构，算法，Linux等" required /></textarea>
-                            </div>
-                            <div class="control-group">
-                                <label>总体评价</label>
-                                <textarea class="form-control" id="input_overall" rows="5" placeholder="总体水平评价，面试官主观看法等" required /></textarea>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-8">
-                                    <select id="select_grade" class="chosen-select">
-                                        <option value="-1">评级</option>
-                                        <option value="5">S  — 非常棒，极力推荐</option>
-                                        <option value="4">A+ — 很不错，通过</option>
-                                        <option value="3">A- — 还可以，通过</option>
-                                        <option value="2">B  — 一般，待定</option>
-                                        <option value="1">C  — 较差，淘汰</option>
-                                    </select>
+                            <form>
+                                <input type="hidden" name="profileid" value="".$row["profileid"]."" />
+                                <input type="hidden" name="judger" value="".$_SESSION["judger"]."" />
+                                <input type="hidden" name="status" value="".$row["status"]."" />
+                                <input type="hidden" name="action" value="save" />
+                                <div class="control-group">
+                                    <label>基础技能</label>
+                                    <textarea class="form-control" id="input_basic" rows="5" placeholder="C语言，计算机基础等" required /></textarea>
                                 </div>
-                                <div class="col-md-4">
-                                    <a data-type="button" data-default="true" data-action="save" class="btn btn-primary btn-block margin-bottom">保存评价</a>
+                                <div class="control-group">
+                                    <label>加分技能</label>
+                                    <textarea class="form-control" id="input_extra" rows="5" placeholder="数据结构，算法，Linux等" required /></textarea>
                                 </div>
+                                <div class="control-group">
+                                    <label>总体评价</label>
+                                    <textarea class="form-control" id="input_overall" rows="5" placeholder="总体水平评价，面试官主观看法等" required /></textarea>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <select id="select_grade" class="chosen-select">
+                                            <option value="-1">评级</option>
+                                            <option value="5">S  — 非常棒，极力推荐</option>
+                                            <option value="4">A+ — 很不错，通过</option>
+                                            <option value="3">A- — 还可以，通过</option>
+                                            <option value="2">B  — 一般，待定</option>
+                                            <option value="1">C  — 较差，淘汰</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a data-type="button" id="save_comment" class="btn btn-primary btn-block margin-bottom">保存评价</a>
+                                    </div>
+                                </div>
+                            </form>
                                 <!--
                                 <div class="col-md-4">
                                     <a class="btn btn-info btn-block margin-bottom" href="interview.php">更换对象</a>
                                 </div>
                                 -->
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -191,7 +193,7 @@
     setTimeout(interval,1000);
 })();
 
-$('[data-action="save"]').click(function() {
+$("#save_comment").click(function() {
     var param = {
         action: "save",
         uid: "<{$info["uid"]}>",

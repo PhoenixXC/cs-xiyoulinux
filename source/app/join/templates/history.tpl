@@ -2,6 +2,23 @@
 
 <{block name="stylesheet" append}>
 <link rel="stylesheet" href="css/style.css" type="text/css" />
+<style type="text/css">
+    .panel-group .panel {
+        border: 0px;
+        -webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, .05); */
+        box-shadow: 0 0px 0px rgba(0, 0, 0, .05);
+    }
+    .panel-heading {
+        border-radius: 0px;
+        background-color: white !important;
+        box-shadow: unset !important;
+        border-top: unset !important;
+        border-bottom: unset !important;
+    }
+    .panel-group .panel-heading + .panel-collapse .panel-body {
+        border-top: 0px solid #eaedef;
+    }
+</style>
 <{/block}>
 
 <{block name="content"}> 
@@ -68,7 +85,7 @@
                             <div class="panel-body">
                                 <legend>评价记录</legend>
                                 <div class="row">
-                                    <div class="col-md-6" style="border-right: 1px solid #dadada;">
+                                    <div class="col-md-12" style="border-bottom: 1px solid #dadada;">
                                         <p><label class="label bg-info">报名信息</label></p>
                                         <p>编号：<strong><{$records[n]["uid"]}></strong></p>
                                         <p>姓名：<strong><{$records[n]["name"]}></strong></p>
@@ -88,13 +105,54 @@
                                         <p><label class="label bg-info">面试时间</label></p>
                                         <p><{$records[n]["time"]}></p>
                                     </div>
-                                    <div class="col-md-6">
-                                        <p><label class="label bg-info">基础技能</label></p>
-                                        <p><{$records[n]["basic"]}></p>
-                                        <p><label class="label bg-info">加分技能</label></p>
-                                        <p><{$records[n]["extra"]}></p>
-                                        <p><label class="label bg-info">总体评价</label></p>
-                                        <p><{$records[n]["overall"]}></p>
+                                    <div class="col-md-12" style="margin-top:10px;padding-left:0px;padding-right:0px;">
+                                        <div class="panel-group" id="accordion" style="margin-bottom: 0px">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion" 
+                                                        href="#collapseOne-<{$smarty.section.n.index}>">
+                                                            <label class="label bg-info">基础技能</label>
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapseOne-<{$smarty.section.n.index}>" class="panel-collapse collapse in">
+                                                    <div class="panel-body">
+                                                        <{$records[n]["basic"]}>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion" 
+                                                        href="#collapseTwo-<{$smarty.section.n.index}>">
+                                                            <label class="label bg-info">加分技能</label>
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapseTwo-<{$smarty.section.n.index}>" class="panel-collapse collapse in">
+                                                    <div class="panel-body">
+                                                        <{$records[n]["extra"]}>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion" 
+                                                        href="#collapseThree-<{$smarty.section.n.index}>">
+                                                            <label class="label bg-info">总体评价</label>
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapseThree-<{$smarty.section.n.index}>" class="panel-collapse collapse in">
+                                                    <div class="panel-body">
+                                                        <{$records[n]["overall"]}>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

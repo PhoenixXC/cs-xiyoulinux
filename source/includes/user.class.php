@@ -5,6 +5,8 @@
 class UserClass{
     private $dbObj;
 
+    private $CACHE_PATH = "/cache";
+
     public function __construct(){
         $this->dbObj = new DBClass();
     }
@@ -251,15 +253,18 @@ class UserClass{
 
     }
 
-    public function get_avatar($uid){
+    public function get_avatar($uid, $expired=2592000){
         $query = "SELECT `mail` FROM `cs_user` WHERE `uid`=$uid;";
         $result = $this->dbObj->query($query);
         if( $result->num_rows <= 0)
             return false;
         $row = $result->fetch_assoc();
         $mail = $row['mail'];
-        $size = 150;
-        $grav_url = "http://cn.gravatar.com/avatar/" .md5(strtolower(trim($mail))) . "?d=mm&s=" . $size;
+
+        $str=md5(strtolower(trim($mail)));
+        $size=150;
+    
+        $grav_url = "http://cn.gravatar.com/avatar/" .$str."?d=mm&s=" .$size;
         return $grav_url;
     }
 

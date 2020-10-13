@@ -101,9 +101,9 @@ CREATE TABLE IF NOT EXISTS `app_join_queue` (
 CREATE TABLE IF NOT EXISTS `app_join_record` (
   `rid` int(4) NOT NULL AUTO_INCREMENT,
   `uid` int(4) NOT NULL,
-  `basic_skill` varchar(2000) NOT NULL,
-  `extra_skill` varchar(2000) NOT NULL,
-  `overall` varchar(2000) NOT NULL,
+  `basic_skill` text NOT NULL,
+  `extra_skill` text NOT NULL,
+  `overall` text NOT NULL,
   `grade` int(5) NOT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `round` int(2) NOT NULL,

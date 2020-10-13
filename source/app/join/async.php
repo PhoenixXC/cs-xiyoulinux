@@ -1,6 +1,7 @@
 <?php
 	require_once(dirname(dirname(dirname(__FILE__))) . '/includes/db.class.php');
-	require_once(dirname(dirname(dirname(__FILE__))) . '/includes/user.class.php');
+    require_once(dirname(dirname(dirname(__FILE__))) . '/includes/user.class.php');
+    require_once(dirname(dirname(dirname(__FILE__))) . '/includes/parsedown.php');
 	include_once('./config.php');
 
 	$dbObj = new DBClass();
@@ -31,6 +32,10 @@
 
 	function save($dbObj, $Current_Status)
 	{
+        $Parsedown = new Parsedown();
+        $_POST["basic"] = $Parsedown->text($_POST["basic"]);
+        $_POST["extra"] = $Parsedown->text($_POST["extra"]);
+        $_POST["overall"] = $Parsedown->text($_POST["overall"]);
 		$sql = "INSERT INTO app_join_record (uid, basic_skill, extra_skill, overall, grade, round, interviewer) VALUES (".$_POST["uid"].", '".$_POST["basic"]."', '".$_POST["extra"]."', '".$_POST["overall"]."', ".$_POST["grade"].", ".$Current_Status.", ".$_POST["interviewer"].")";
 		$result = $dbObj->query($sql);
 		if($result){

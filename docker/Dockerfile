@@ -27,7 +27,7 @@ RUN printf '\
     && mkdir -p /usr/local/lib/php/smarty && mv /root/smarty-${smarty_ver}/libs/* /usr/local/lib/php/smarty/ \
     && rm -rf /root/smarty* \
     && chmod +x /app/*.sh \
-    && mv /app/cs.conf /etc/nginx/sites-enabled/default
+    && mv /app/cs.conf /etc/nginx/sites-enabled/default 
 
 EXPOSE 80
 
