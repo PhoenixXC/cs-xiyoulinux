@@ -85,14 +85,17 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-4">
+							<div class="col-md-3">
 								<a data-type="button" data-action="passa" class="btn btn-large btn-block btn-success btn-judge">自动通过全A评价</a>
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-3">
 								<a data-type="button" data-action="dropc" class="btn btn-large btn-block btn-danger btn-judge">自动淘汰全C评价</a>
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-3">
 								<a href="judge_manual.php" class="btn btn-large btn-block btn-primary btn-judge">手动决策</a>
+							</div>
+                            <div class="col-md-3">
+								<a href="judge_manual_plus.php" class="btn btn-large btn-block btn-primary btn-judge">手动决策+</a>
 							</div>
 						</div>
 					</div>
