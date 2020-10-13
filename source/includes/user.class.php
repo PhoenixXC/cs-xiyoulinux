@@ -253,7 +253,12 @@ class UserClass{
 
     }
 
-    public function get_avatar($uid, $expired=2592000){
+
+    public function get_avatar($uid) {
+        return $this->get_avatar_qq($uid);
+    }
+
+    public function get_avatar_gravatar($uid) {
         $query = "SELECT `mail` FROM `cs_user` WHERE `uid`=$uid;";
         $result = $this->dbObj->query($query);
         if( $result->num_rows <= 0)
@@ -266,6 +271,18 @@ class UserClass{
     
         $grav_url = "http://cn.gravatar.com/avatar/" .$str."?d=mm&s=" .$size;
         return $grav_url;
+    }
+
+    public function get_avatar_qq($uid) {
+        $query = "SELECT `qq` FROM `cs_user` WHERE `uid`=$uid;";
+        $result = $this->dbObj->query($query);
+        if( $result->num_rows <= 0)
+            return false;
+        $row = $result->fetch_assoc();
+        $qq = trim($row['qq']);
+    
+        $avatar_url = "http://q1.qlogo.cn/g?b=qq&nk=" . $qq ."&s=100";
+        return $avatar_url;
     }
 
     private function check_user($uid){
