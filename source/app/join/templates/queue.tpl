@@ -15,6 +15,7 @@
         background: #5a6a7ae3;
         z-index: 1;
         box-shadow: 3px 11px 20px 0px #0000005c;
+        cursor: -webkit-grab;
     }
 </style>
 <{/block}>

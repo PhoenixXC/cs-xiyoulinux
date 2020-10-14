@@ -3,12 +3,15 @@
 <{block name="stylesheet" append}>
 <link rel="stylesheet" href="<{$site_domain}>/js/chosen/chosen.css" type="text/css" />
 <link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/hide.css" type="text/css" />
 <{/block}>
 
 <{block name="content"}> 
     <div class="row page-content">
-        <div class="col-md-4">
+        <div id="op-hide" class="glyphicon glyphicon-resize-full hidden" aria-hidden="true" id="hideItem"></div>
+        <div id="v-aside" class="col-md-4">
             <div class="panel panel-default">
+                <div id="op" class="glyphicon glyphicon-resize-small" aria-hidden="true"></div>
                 <div class="panel-body">
                     <ul class="nav nav-list">
                         <li class="nav-list-group">
@@ -61,7 +64,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-8">
+        <div id="v-main" class="col-md-8">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <legend>用户信息<div id="interview_time"></div></legend>
@@ -167,6 +170,7 @@
 <{block name="scripts" append}>
 <script type="text/javascript" src="js/init.js"></script>
 <script type="text/javascript" src="<{$site_domain}>/js/chosen/chosen.jquery.min.js"></script>
+<script type="text/javascript" src="js/hide.js"></script>
 
 <script type="text/javascript">
 (function() {
@@ -184,6 +188,10 @@
         if(minute==60)
         {
         minute=0;hour+=1;
+        }
+        if (minute >= 35 && hour === 0) {
+            $("#interview_time").css('color', '#eb3737');   
+            $("#interview_time").css('font-weight', 'bolder');    
         }
         $("#interview_time").html("面试已持续："+hour+"时"+minute+"分"+second+"秒");
 

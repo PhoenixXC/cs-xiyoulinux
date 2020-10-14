@@ -2,6 +2,7 @@
 
 <{block name="stylesheet" append}>
 <link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/hide.css" type="text/css" />
 <style type="text/css">
     .panel-group .panel {
         border: 0px;
@@ -23,8 +24,10 @@
 
 <{block name="content"}> 
     <div class="row page-content">
-        <div class="col-md-4">
+        <div id="op-hide" class="glyphicon glyphicon-resize-full hidden" aria-hidden="true" id="hideItem"></div>
+        <div id="v-aside" class="col-md-4">
             <div class="panel panel-default">
+                <div id="op" class="glyphicon glyphicon-resize-small" aria-hidden="true"></div>
                 <div class="panel-body">
                     <ul class="nav nav-list">
                         <li class="nav-list-group">
@@ -77,7 +80,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-8">
+        <div id="v-main" class="col-md-8">
                 <ul class="history-list">
                     <{section name=n loop=$records}>
                     <li class="history-list-item">
@@ -173,6 +176,7 @@
 
 <{block name="scripts" append}>
     <script type="text/javascript" src="js/init.js"></script>
+    <script type="text/javascript" src="js/hide.js"></script>
     <script type="text/javascript">
 
     </script>

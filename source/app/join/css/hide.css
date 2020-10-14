@@ -1,0 +1,20 @@
+div#op {
+    display: flex;
+    position: absolute;
+    right: 15px;
+    padding: 5px;
+    /* background: #4cb6cb; */
+    color: #c0c0c0;
+}
+
+div#op-hide {
+    color: white;
+    position: absolute;
+    top: 25%;
+    background-color: #555;
+    box-shadow: 0px 3px 8px 0px #59595966;
+    padding: 10px;
+    left: 0px;
+    /* padding-left: 10px; */
+    z-index: 1;
+}
