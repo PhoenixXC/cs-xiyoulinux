@@ -49,6 +49,21 @@
   <!-- 最新动态内容 index_content.html -->
   <div class="row">
     <div class="col-sm-8">
+    
+    <h4 class="font-thin">发表动态</h4>
+    <section class="comment-body panel panel-default">
+        <div class="panel-body">
+            <div class="form-group">
+                <textarea class="form-control" id="new-activity" rows="5" style="resize:none" placeholder="发表一条新动态，话题前后用#隔开..."></textarea>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <div class="text-right">
+                <button id="send-new-act" type="button" class="btn btn-primary">发表</button>
+            </div>
+        </div>
+    </section>
+
       <!--  第二部分  -->
       <h4 class="font-thin">最新动态</h4>
 
@@ -224,6 +239,32 @@
         alert(res.msg);
         location.reload();
       });
+    });
+
+    //发表动态按钮事件
+    $('#send-new-act').click(function() {
+        var actTxt = $('#new-activity').val();
+
+        if (actTxt == '') {
+            alert('不能发表空动态');
+            return false;
+        }
+
+        $.post('<{$site_domain}>/server/activity.server.php', {
+            action: 'new_act',
+            activity_text: actTxt
+        }, function (data) {
+            var obj = JSON.parse(data);
+
+            if (obj.state == 'success') {
+                alert('动态发表成功!');
+                location.reload();
+            } else {
+                alert('动态发表失败!');
+            }
+        });
+        
+        return false;
     });
   </script>
 <{/block}>

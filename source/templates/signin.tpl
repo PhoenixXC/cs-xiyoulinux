@@ -1,5 +1,30 @@
 <{extends file="base.tpl"}>
 
+<{block name="stylesheet" append}>
+<style>
+    footer#footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        color: white;
+        text-align: center;
+    }
+
+    body {
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    html {
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+</style>
+<{/block}>
+
 <{block name="body_style"}>bg-info dker<{/block}>
 
 <{block name="frame"}>

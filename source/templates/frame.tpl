@@ -1,6 +1,14 @@
 <{extends file="base.tpl"}>
 
 <{block name="stylesheet" append}>
+<style>
+    .header.navbar {
+        box-shadow: 8px -6px 16px 0px #9b9b9b99;
+    }
+    div#navbar_header {
+        min-height: 60px;
+    }
+</style>
 <{/block}>
 
 <{block name="frame"}>
@@ -51,7 +59,7 @@
 
             <form class="navbar-form navbar-left input-s-box m-t m-l-n-xs hidden-xs" role="search" action="<{$site_domain}>/search.php" method="get">
 
-                <div class="form-group">
+                <div class="form-group" style="width: 100%">
 
                     <div class="input-group">
 
@@ -69,30 +77,8 @@
 
             </form>
 
-            <form class="navbar-form navbar-left input-s-box m-t m-l-n-xs hidden-xs" role="search">
-
-                <div class="form-group">
-
-                    <div class="input-group">
-
-                        <span class="input-group-btn">
-
-                          <button type="submit" id="btn_new_activity" class="btn btn-sm bg-white btn-icon rounded"><i class="fa fa-edit"></i></button>
-
-                        </span>
-
-                        <input id="activity_text" type="text" class="form-control input-sm no-border rounded" placeholder="发表一条新动态，话题前后用#隔开...">
-
-                    </div>
-
-                </div>
-
-            </form>
-
             <div class="navbar-right ">
-
-
-
+            
                 <ul class="nav navbar-nav m-n hidden-xs nav-user user">
 
                     <li class="hidden-xs">
@@ -611,31 +597,6 @@
                         elem.html(data);
                     }
                 });
-            });
-
-            //发表动态按钮事件
-            $('#btn_new_activity').click(function() {
-                var actTxt = $('#activity_text').val();
-
-                if (actTxt == '') {
-                    alert('不能发表空动态');
-                    return false;
-                }
-
-                $.post('<{$site_domain}>/server/activity.server.php', {
-                    action: 'new_act',
-                    activity_text: actTxt
-                }, function (data) {
-                    var obj = JSON.parse(data);
-
-                    if (obj.state == 'success') {
-                        alert('动态发表成功!');
-                    } else {
-                        alert('动态发表失败!');
-                    }
-                });
-                
-                return false;
             });
 
             //登出按钮事件
