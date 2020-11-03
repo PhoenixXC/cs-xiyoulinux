@@ -1,7 +1,7 @@
 <?php
 require_once('./preprocess.php');
 
-$sql = "SELECT app_join_info.uid AS uid, name, class, basic_skill, extra_skill, overall, grade, time, round FROM app_join_record, app_join_info WHERE interviewer = ".$login_uid." AND app_join_record.uid = app_join_info.uid ORDER BY time DESC";
+$sql = "SELECT app_join_info.uid AS uid, name, class, basic_skill, extra_skill, overall, grade, time, round FROM app_join_record, app_join_info WHERE interviewer = ".$login_uid." AND app_join_record.uid = app_join_info.uid AND overall !='Sync' ORDER BY time DESC";
 $result = $dbObj->query($sql);
 while($com = $result->fetch_assoc())
 {

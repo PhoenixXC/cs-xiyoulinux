@@ -280,6 +280,9 @@ class UserClass{
             return false;
         $row = $result->fetch_assoc();
         $qq = trim($row['qq']);
+        if ( $qq == "") {
+            $qq = "00";
+        }
     
         $avatar_url = "http://q1.qlogo.cn/g?b=qq&nk=" . $qq ."&s=100";
         return $avatar_url;

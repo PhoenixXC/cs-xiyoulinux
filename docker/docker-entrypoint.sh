@@ -8,7 +8,7 @@ readonly PHP_INI=/opt/bitnami/php/lib/php.ini
 
 function update_config () {
     if [ -n "$2" ]; then
-        echo "update ENV $1 to $2"
+        echo "update ENV $1..."
         sed -i "s?'$1',.*\$?'$1', '$2');?" "$APP_CONFIG_FILE"
     fi
 }

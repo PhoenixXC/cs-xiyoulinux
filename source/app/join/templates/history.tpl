@@ -113,46 +113,31 @@
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">
                                                     <h4 class="panel-title">
-                                                        <a data-toggle="collapse" data-parent="#accordion" 
-                                                        href="#collapseOne-<{$smarty.section.n.index}>">
-                                                            <label class="label bg-info">基础技能</label>
-                                                        </a>
+                                                        <label class="label bg-info">基础技能</label>
                                                     </h4>
                                                 </div>
-                                                <div id="collapseOne-<{$smarty.section.n.index}>" class="panel-collapse collapse in">
-                                                    <div class="panel-body">
-                                                        <{$records[n]["basic"]}>
-                                                    </div>
+                                                <div class="panel-body">
+                                                    <{$records[n]["basic"]}>
                                                 </div>
                                             </div>
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">
                                                     <h4 class="panel-title">
-                                                        <a data-toggle="collapse" data-parent="#accordion" 
-                                                        href="#collapseTwo-<{$smarty.section.n.index}>">
-                                                            <label class="label bg-info">加分技能</label>
-                                                        </a>
+                                                        <label class="label bg-info">加分技能</label>
                                                     </h4>
                                                 </div>
-                                                <div id="collapseTwo-<{$smarty.section.n.index}>" class="panel-collapse collapse in">
-                                                    <div class="panel-body">
-                                                        <{$records[n]["extra"]}>
-                                                    </div>
+                                                <div class="panel-body">
+                                                    <{$records[n]["extra"]}>
                                                 </div>
                                             </div>
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">
                                                     <h4 class="panel-title">
-                                                        <a data-toggle="collapse" data-parent="#accordion" 
-                                                        href="#collapseThree-<{$smarty.section.n.index}>">
-                                                            <label class="label bg-info">总体评价</label>
-                                                        </a>
+                                                        <label class="label bg-info">总体评价</label>
                                                     </h4>
                                                 </div>
-                                                <div id="collapseThree-<{$smarty.section.n.index}>" class="panel-collapse collapse in">
-                                                    <div class="panel-body">
-                                                        <{$records[n]["overall"]}>
-                                                    </div>
+                                                <div class="panel-body">
+                                                    <{$records[n]["overall"]}>
                                                 </div>
                                             </div>
                                         </div>

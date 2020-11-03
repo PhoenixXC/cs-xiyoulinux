@@ -25,7 +25,7 @@ if (isset($uid))
 		$com = $result->fetch_assoc();
 		$info = $com;
 	}
-	$sql = "SELECT * FROM app_join_record WHERE uid = ".$uid." ORDER BY rid DESC";
+	$sql = "SELECT * FROM app_join_record WHERE uid = ".$uid." AND overall !='Sync' ORDER BY rid DESC";
     $graderesult = $dbObj->query($sql);
     $records = array();
 	while ($g1 = $graderesult->fetch_assoc()) {

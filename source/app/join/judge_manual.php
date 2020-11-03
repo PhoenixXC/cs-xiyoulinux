@@ -21,7 +21,7 @@ if (isset($uid))
 		$com = $result->fetch_assoc();
 		$info = $com;
 	}
-	$sql = "SELECT * FROM app_join_record WHERE uid = ".$uid." AND round = ".$Current_Status." ORDER BY time ASC";
+	$sql = "SELECT * FROM app_join_record WHERE uid = ".$uid." AND overall !='Sync' AND round = ".$Current_Status." ORDER BY time ASC";
 	$graderesult = $dbObj->query($sql);
 	if($g1 = $graderesult->fetch_assoc()) {
 		$json_str = $CUser->get_userinfo($g1["interviewer"]);
