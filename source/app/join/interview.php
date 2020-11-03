@@ -19,8 +19,8 @@ if($result->num_rows > 0){
     $info["class"] = $com["class"];
     $info["mobile"] = $com["mobile"];
     
-    if($Current_Status != 0) $sql = "SELECT basic_skill, extra_skill, overall, grade, time, round, interviewer FROM app_join_record WHERE uid = ".$uid." AND round < ".$Current_Status." ORDER BY time DESC";
-    else $sql = "SELECT basic_skill, extra_skill, overall, grade, time, round, interviewer FROM app_join_record WHERE uid = ".$uid." AND round = 1 ORDER BY time DESC";
+    if($Current_Status != 0) $sql = "SELECT basic_skill, extra_skill, overall, grade, time, round, interviewer FROM app_join_record WHERE uid = ".$uid." AND round < ".$Current_Status." AND overall !='Sync' ORDER BY time DESC";
+    else $sql = "SELECT basic_skill, extra_skill, overall, grade, time, round, interviewer FROM app_join_record WHERE uid = ".$uid." AND round = 1 AND overall !='Sync' ORDER BY time DESC";
     $result = $dbObj->query($sql);
     if($result->num_rows > 0){
         while($com = $result->fetch_assoc())
